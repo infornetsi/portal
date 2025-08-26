@@ -1,7 +1,7 @@
 {
-  "name": "helpdesk-portal",
-  "version": "1.3.1",
-  "description": "Helpdesk portal (Docker + DATA_DIR)",
+  "name": "ayudainfornet-helpdesk",
+  "version": "3.0.0",
+  "description": "AyudaInfornet Helpdesk portal completo (roles, registro, tickets, comentarios, SLA, reports).",
   "main": "helpdesk-portal.js",
   "scripts": {
     "start": "node helpdesk-portal.js"

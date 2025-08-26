@@ -1,7 +1,7 @@
 {
   "name": "ayudainfornet-helpdesk",
-  "version": "3.0.0",
-  "description": "AyudaInfornet Helpdesk portal completo (roles, registro, tickets, comentarios, SLA, reports).",
+  "version": "3.1.0",
+  "description": "AyudaInfornet Helpdesk portal completo (roles, aprobaci\u00f3n, tickets, comentarios p\u00fablicos/privados, SLA, adjuntos, reportes).",
   "main": "helpdesk-portal.js",
   "scripts": {
     "start": "node helpdesk-portal.js"

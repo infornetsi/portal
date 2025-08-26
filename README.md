@@ -1,21 +1,21 @@
-# AyudaInfornet Helpdesk v3
+# AyudaInfornet Helpdesk v3 (completo)
 
-## 🚀 Despliegue en Render
-1. Sube estos archivos a un repo en GitHub.
-2. Crea un Web Service en Render (Dockerfile detectado).
-3. Añade variables de entorno (SESSION_SECRET, COOKIE_SECURE=false, DATA_DIR=/data).
-4. Añade un disco en /data (1–5GB).
-5. Deploy.
+## Despliegue en Render (Docker)
+1. Sube estos archivos a un repo en GitHub (raíz).
+2. Crea un Web Service en Render (detectará el Dockerfile).
+3. Environment:
+   - SESSION_SECRET = <cadena_larga>
+   - COOKIE_SECURE = false
+   - DATA_DIR = /data
+   - (SMTP opcional para emails)
+4. Disks → Add Disk → Mount Path: /data
+5. Deploy → Logs: "Helpdesk portal listo ..."
 
-## 👤 Admin inicial
-- Usuario: mseoane@holainfornet.com
-- Contraseña: Infornet1138
-(luego cámbiala en /account/password)
+## Admin inicial
+- Email: mseoane@holainfornet.com
+- Password: Infornet1138
+Cámbiala en: /account/password
 
-## ✨ Funcionalidades
-- Registro con aprobación por Admin
-- Roles: admin, supervisor, técnico, usuario
-- Tickets con estados, prioridad, SLA y adjuntos
-- Comentarios públicos/privados
-- Reportes básicos
-- Notificaciones por email (si configuras SMTP)
+## Dominio
+- Añade help.ayudainfornet.com como Custom Domain en Render y crea CNAME en DonDominio.
+- Cuando SSL active → cambia COOKIE_SECURE=true y redeploy.

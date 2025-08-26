@@ -1,7 +1,7 @@
 {
   "name": "helpdesk-portal",
-  "version": "1.0.0",
-  "description": "Helpdesk portal with logo, attachments, SLA, groups, notifications.",
+  "version": "1.2.0",
+  "description": "Helpdesk portal (Docker + DATA_DIR for Render) with login, tickets, attachments, filters, email notifications.",
   "main": "helpdesk-portal.js",
   "scripts": {
     "start": "node helpdesk-portal.js"

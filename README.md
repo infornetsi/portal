@@ -1,26 +1,34 @@
-# Helpdesk Portal - AyudaInfornet
+# Helpdesk Portal — AyudaInfornet (Render + Docker + DATA_DIR)
 
-## Despliegue rápido en Render
-1. Sube este repo a GitHub (sube los archivos, no el zip).
-2. En Render → New + → Web Service → conecta tu repo.
-3. Runtime: Docker (usa el Dockerfile incluido).
-4. Variables de entorno: copia de `.env.example`.
-   - Cambia SESSION_SECRET por un valor aleatorio largo.
-   - Si tu dominio ya tiene SSL, deja COOKIE_SECURE=true.
-   - MAIL_FROM ya está listo para tu helpdesk.
-   - SMTP_* rellénalo cuando tengas servidor de correo.
-5. Añade un disco (1-5GB) montado en `/app` para persistencia.
-6. Deploy → Render te da URL temporal.
+## Despliegue en Render (paso a paso)
+1) Sube estos archivos a un repositorio de **GitHub** (en la raíz).
+2) En Render → **New + → Web Service** → conecta tu GitHub y elige el repo.
+3) Render detectará el **Dockerfile** automáticamente.
+4) En **Environment** añade estas variables (copiando de `.env.example`):
+   - `SESSION_SECRET` = valor largo y único
+   - `COOKIE_SECURE=false` (ponlo `true` cuando tu dominio tenga SSL)
+   - `DATA_DIR=/data`
+   - SMTP: opcional; si no tienes proveedor, déjalo vacío
+5) En **Disks** → **Add Disk**:
+   - Mount Path: **/data**
+   - Size: 1–5 GB
+6) **Create Web Service** → Deploy. Debes ver en logs:  
+   `Helpdesk portal listo ... (DATA_DIR=/data)`
 
-## Dominio personalizado
-1. En Render: Settings → Custom Domains → add `help.ayudainfornet.com`.
-2. En DonDominio: crea un CNAME `help` apuntando al target de Render.
-3. Render validará y activará SSL.
-4. Tu portal quedará en https://help.ayudainfornet.com
+## Dominio (DonDominio)
+1) En Render → Settings → **Custom Domains** → añade `help.ayudainfornet.com`.
+2) Render mostrará un **CNAME target** (ej. `xxxxx.onrender.com`).
+3) En **DonDominio** → DNS de `ayudainfornet.com` → crea **CNAME**:
+   - Host: `help`
+   - Tipo: CNAME
+   - Valor: el target que te dio Render
+   - TTL: 300
+4) Cuando Render marque el dominio como **Verified**, SSL se activa.
+5) Cambia `COOKIE_SECURE=true` en **Environment** y redeploy.
 
 ## Usuarios demo
-- Admin: admin@example.com / Admin123!
-- Cliente: client@example.com / Client123!
+- Admin: `admin@example.com` / `Admin123!`
+- Cliente: `client@example.com` / `Client123!`
 
-## Logo
-El logo está en /public/logo.png y se muestra en la cabecera.
+## Backups
+- Copia periódicamente el contenido de `/data` (DB y adjuntos).

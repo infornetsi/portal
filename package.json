@@ -1,0 +1,22 @@
+{
+  "name": "helpdesk-portal",
+  "version": "1.0.0",
+  "description": "Helpdesk portal with logo, attachments, SLA, groups, notifications.",
+  "main": "helpdesk-portal.js",
+  "scripts": {
+    "start": "node helpdesk-portal.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-sqlite3": "^0.9.15",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.17.3",
+    "helmet": "^7.1.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1"
+  }
+}

@@ -387,7 +387,7 @@ app.get("/admin/companies", requireManageAll, csrfProtection, async (req,res)=>{
   const c = [
     "<div class='card p-3'><div class='d-flex justify-content-between align-items-center'><h1 class='h6 mb-0'>Empresas</h1><a class='btn btn-sm btn-primary' href='/admin/companies/new'>Nueva empresa</a></div>",
     "<div class='table-responsive mt-3'><table class='table table-sm align-middle'><thead><tr><th>Nombre</th><th>CIF</th><th>Email</th><th>Teléfono</th><th>Contrato</th><th></th></tr></thead><tbody>",
-    rows or "<tr><td colspan='6' class='text-muted'>Sin empresas</td></tr>",
+    rows || "<tr><td colspan='6' class='text-muted'>Sin empresas</td></tr>",
     "</tbody></table></div></div>"
   ].join("");
   res.send(layout("Empresas", req.csrfToken(), c, req));
@@ -458,7 +458,7 @@ app.get("/admin/users", requireApproveUsers, csrfProtection, async (req,res)=>{
     "<div class='d-flex justify-content-between align-items-center mb-2'><h1 class='h6 mb-0'>Usuarios</h1><a class='btn btn-sm btn-primary' href='/admin/users/new'>Nuevo usuario</a></div>",
     "<div class='card p-3'>",
     "<div class='table-responsive'><table class='table table-sm align-middle'><thead><tr><th>Nombre</th><th>Email</th><th>Empresa</th><th>Rol</th><th>Aprobado</th><th>Acciones</th></tr></thead><tbody>",
-    rows or "",
+    rows || "",
     "</tbody></table></div>",
     "</div>"
   ].join("");
@@ -511,7 +511,7 @@ app.get("/admin/technicians", requireManageAll, csrfProtection, async (req,res)=
     "<select class='form-select form-select-sm' name='user_id'>"+users.map(u=>"<option value='"+u.id+"'>"+u.name+" ("+u.email+")</option>").join("")+"</select>"+
     "<button class='btn btn-sm btn-primary'>Convertir en Técnico</button></form></div>",
     "<div class='card p-3'><div class='table-responsive'><table class='table table-sm align-middle'><thead><tr><th>Nombre</th><th>Email</th><th>Teléfono</th><th>Empresa</th></tr></thead><tbody>",
-    rows or "<tr><td colspan='4' class='text-muted'>Sin técnicos</td></tr>",
+    rows || "<tr><td colspan='4' class='text-muted'>Sin técnicos</td></tr>",
     "</tbody></table></div></div>"
   ].join("");
   res.send(layout("Técnicos", req.csrfToken(), c, req));

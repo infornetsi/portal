@@ -1,7 +1,7 @@
 {
   "name": "ayudainfornet-helpdesk",
-  "version": "5.0.1",
-  "description": "Helpdesk v5 con UX mejorada (Empresas/Usuarios/T\u00e9cnicos), CSRF arreglado y Render-ready.",
+  "version": "5.1.0",
+  "description": "Helpdesk v5.1 con correcci\u00f3n de sintaxis y mejoras UX.",
   "main": "helpdesk-portal.js",
   "scripts": {
     "start": "node helpdesk-portal.js"
